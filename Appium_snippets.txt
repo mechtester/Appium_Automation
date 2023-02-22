@@ -17,7 +17,7 @@ desired_caps = {
   "appActivity": "App Main Activity"
 }
 
-#
+
 from appium.webdriver.common.touch_action import TouchAction
 ## create a TouchAction object
 touch_action = TouchAction(driver)
