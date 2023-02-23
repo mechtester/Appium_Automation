@@ -57,5 +57,21 @@ english=wait.until(EC.element_to_be_clickable((By.XPATH, "//android.widget.TextV
 english.click()
 
 
+##Get data from excell sheet to enter keys##
+
+# Load the workbook and get the sheet
+workbook = openpyxl.load_workbook('/home/vignesh/PycharmProjects/Appium_Automation/date_data.xlsx')
+sheet = workbook.active
+
+# Sheet have single column and multiple rows
+for row in sheet.iter_rows(min_row=2, values_only=True):
+    Date_value = row[0]
+    if Date_value is not None:
+        time.sleep(3)
+        date = wait.until(EC.element_to_be_clickable((By.XPATH, "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.RelativeLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout[1]/android.widget.FrameLayout/android.widget.EditText")))
+        date.send_keys(str(Date_value))
+
+
+
 
 
